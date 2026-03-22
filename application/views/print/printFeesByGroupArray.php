@@ -594,7 +594,7 @@ if ($feeList->fine_amount != "") {
                 </div>
                 <div class="row header ">
                     <div class="col-sm-12">   
-                        <?php $this->setting_model->get_receiptfooter(); ?>                       
+                        <?php echo $this->setting_model->get_receiptfooter(); ?>                       
                     </div>
                 </div>  
             </div>
@@ -983,7 +983,7 @@ if ($feeList->fine_amount != "") {
                     </div>
                     <div class="row header ">
                         <div class="col-sm-12">
-                            <?php $this->setting_model->get_receiptfooter(); ?>
+                            <?php echo $this->setting_model->get_receiptfooter(); ?>
                         </div>
                     </div>  
                 </div>
@@ -1381,7 +1381,7 @@ if ($feeList->fine_amount != "") {
                     </div>
                     <div class="row header ">
                         <div class="col-sm-12">
-                            <?php $this->setting_model->get_receiptfooter(); ?>
+                            <?php echo $this->setting_model->get_receiptfooter(); ?>
                         </div>
                     </div>  
                 </div>

@@ -426,7 +426,7 @@ if(in_array('0', $print_copy)){
                         <?php
                         ?>
 
-                        <?php $this->setting_model->get_receiptfooter(); ?>
+                        <?php echo $this->setting_model->get_receiptfooter(); ?>
                         <?php
                         ?>
                     </div>
@@ -658,7 +658,7 @@ if(in_array('0', $print_copy)){
                     </div>
                     <div class="row header ">
                         <div class="col-sm-12">
-                            <?php $this->setting_model->get_receiptfooter(); ?>
+                            <?php echo $this->setting_model->get_receiptfooter(); ?>
 
                         </div>
 
@@ -891,7 +891,7 @@ if(in_array('0', $print_copy)){
                     </div>
                     <div class="row header ">
                         <div class="col-sm-12">
-                            <?php $this->setting_model->get_receiptfooter(); ?>
+                            <?php echo $this->setting_model->get_receiptfooter(); ?>
 
                         </div>
 

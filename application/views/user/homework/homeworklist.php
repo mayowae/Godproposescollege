@@ -111,8 +111,8 @@ $evl_date = "";
                                         <th><?php echo $this->lang->line('homework_date'); ?></th>
                                         <th><?php echo $this->lang->line('submission_date'); ?></th>
                                         <th><?php echo $this->lang->line('evaluation_date'); ?></th>
-                                        <th><?php echo $this->lang->line('whole_marks'); ?></th>
-                                        <th><?php echo $this->lang->line('marks'); ?></th>
+                                        <th><?php echo $this->lang->line('max_marks'); ?></th>
+                                        <th><?php echo $this->lang->line('marks_obtained'); ?></th>
                                         <th><?php echo $this->lang->line('note'); ?></th>
                                         <th><?php echo $this->lang->line('status'); ?></th>
                                         <th class="text-right noExport"><?php echo $this->lang->line('action') ?></th>

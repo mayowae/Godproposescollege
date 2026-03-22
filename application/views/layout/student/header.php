@@ -188,7 +188,7 @@ if ($this->studentmodule_lib->hasActive('multi_class')) {
 ?>
                                      <?php if ($this->studentmodule_lib->hasActive('calendar_to_do_list')) {
     ?>
-                                    <li class="cal15 <?php echo ($is_lock_panel) ? "disable-link" : "" ?>"><a data-placement="bottom" data-toggle="tooltip" title="<?php echo $this->lang->line('calendar') ?>" href="<?php echo base_url() ?>user/calendar/"><i class="fa fa fa-calendar"></i></a></li>
+                                    <li class="cal15 d-sm-none <?php echo ($is_lock_panel) ? "disable-link" : "" ?>"><a data-placement="bottom" data-toggle="tooltip" title="<?php echo $this->lang->line('calendar') ?>" href="<?php echo base_url() ?>user/calendar/"><i class="fa fa fa-calendar"></i></a></li>
 
                                     <li data-placement="bottom" data-toggle="tooltip" title="<?php echo $this->lang->line('task') ?>" class="dropdown <?php echo ($is_lock_panel) ? "disable-link" : "" ?>">
                                         <a href="#" class="dropdown-toggle todoicon" data-toggle="dropdown">
@@ -221,9 +221,18 @@ $tasklist = $this->customlib->getincompleteTask($userdata["id"]);
                                         </ul>
                                     </li>
 
+                                <li class="dropdown d-lg-none d-sm-block ellipsis-px-3">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-ellipsis-v"></i>
+                                    </a>
+                                    <ul class="dropdown-menu min-w-full sm-drop-down">
+                                        <li><a href="<?php echo base_url() ?>user/calendar/"><i class="fa fa-calendar"></i></a></li>
+                                        <li><a href="<?php echo base_url() ?>user/chat"><i class="fa fa-whatsapp"></i></a></li>
+                                    </ul>
+                                </li>    
+
                                 <?php }if ($this->module_lib->hasActive('chat') && $this->studentmodule_lib->hasActive('chat')) {
     ?>
-                                 <li class="cal15 <?php echo ($is_lock_panel) ? "disable-link" : "" ?>"><a data-placement="bottom" data-toggle="tooltip" title="" href="<?php echo base_url() ?>user/chat" data-original-title="<?php echo $this->lang->line('chat'); ?>" class="todoicon"><i class="fa fa-whatsapp"></i></a></li>
+                                 <li class="cal15 d-sm-none <?php echo ($is_lock_panel) ? "disable-link" : "" ?>"><a data-placement="bottom" data-toggle="tooltip" title="" href="<?php echo base_url() ?>user/chat" data-original-title="<?php echo $this->lang->line('chat'); ?>" class="todoicon"><i class="fa fa-whatsapp"></i></a></li>
                                 <?php }
 
 $student_data = $this->customlib->getLoggedInUserData(); 

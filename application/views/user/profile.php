@@ -297,7 +297,7 @@ if (is_string($field_value->field_value) && is_array(json_decode($field_value->f
                                  <td ><?php echo $student['father_name']; ?></td>
                  <?php if ($sch_setting->father_pic) {
             ?>
-                                 <td rowspan="3"><img class="profile-user-img img-responsive img-rounded border0" src="             
+                                 <td rowspan="3" width="100"><img class="profile-user-img img-responsive img-rounded border0" src="             
             <?php
 if (!empty($student["father_pic"])) {
             echo base_url() . $student["father_pic"].img_time();
@@ -324,7 +324,7 @@ if (!empty($student["father_pic"])) {
                                  <td><?php if ($sch_setting->mother_name) {echo $this->lang->line('mother_name');}?></td>
                                  <td><?php if ($sch_setting->mother_name) {echo $student['mother_name'];}?></td>
 
-                                 <td rowspan="3"> <?php if ($sch_setting->mother_pic) {
+                                 <td rowspan="3" width="100"> <?php if ($sch_setting->mother_pic) {
         ?><img class="profile-user-img img-responsive img-rounded border0" src="
         <?php
 if (!empty($student["mother_pic"])) {
@@ -1295,7 +1295,7 @@ for ($i = 1; $i <= 31; $i++) {
                      if($this->module_lib->hasModule('behaviour_records') && $this->studentmodule_lib->hasActive('behaviour_records') ){  ?>
                   <div class="tab-pane" id="incident">
                      <div class="timeline-header no-border">
-                        <div class="mailbox-messages table-responsive overflow-visible">
+                        <div class="mailbox-messages table-responsive overflow-visible-lg">
                            <div class="download_label"><?php echo $this->lang->line('student_behaviour'); ?></div>
                            <table class="table table-striped table-bordered table-hover example">
                               <thead>

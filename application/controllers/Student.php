@@ -304,6 +304,7 @@ class Student extends Admin_Controller
             )
         );
 
+
         $this->form_validation->set_rules(
             'mobileno', $this->lang->line('mobileno'), array(
                 'xss_clean',
@@ -311,12 +312,17 @@ class Student extends Admin_Controller
             )
         );
 
-        $this->form_validation->set_rules(
-            'guardian_email', $this->lang->line('guardian_email'), array(
-                'valid_email',
-                array('check_guardian_email_exists', array($this->student_model, 'check_guardian_email_exists')),
-            )
-        );
+        $sibling_id         = $this->input->post('sibling_id');
+        if($sibling_id > 0){
+            
+        }else{
+            $this->form_validation->set_rules(
+                'guardian_email', $this->lang->line('guardian_email'), array(
+                    'valid_email',
+                    array('check_guardian_email_exists', array($this->student_model, 'check_guardian_email_exists')),
+                )
+            );        
+        }   
 
         if (!$this->sch_setting_detail->adm_auto_insert) {
             $this->form_validation->set_rules('admission_no', $this->lang->line('admission_no'), 'trim|required|xss_clean|is_unique[students.admission_no]');
@@ -578,7 +584,6 @@ class Student extends Admin_Controller
                             'student_session_id'     => $student_session_id,
                             'route_pickup_point_id'  => $route_pickup_point_id,
                             'transport_feemaster_id' => $transport_feemaster_value,
-
                         );
                     }
 
@@ -1177,6 +1182,7 @@ class Student extends Admin_Controller
             $this->form_validation->set_rules('guardian_name', $this->lang->line('guardian_name'), 'trim|required|xss_clean');
             $this->form_validation->set_rules('guardian_is', $this->lang->line('guardian'), 'trim|required|xss_clean');
         }
+        
         if ($this->sch_setting_detail->guardian_phone) {
             $this->form_validation->set_rules('guardian_phone', $this->lang->line('guardian_phone'), 'trim|required|xss_clean');
         }
@@ -1188,12 +1194,12 @@ class Student extends Admin_Controller
             )
         );
 
-        $this->form_validation->set_rules(
-            'guardian_email', $this->lang->line('guardian_email'), array(
-                'valid_email',
-                array('check_guardian_email_exists', array($this->student_model, 'check_guardian_email_exists')),
-            )
-        );
+        // $this->form_validation->set_rules(
+            // 'guardian_email', $this->lang->line('guardian_email'), array(
+                // 'valid_email',
+                // array('check_guardian_email_exists', array($this->student_model, 'check_guardian_email_exists')),
+            // )
+        // );
 
         $this->form_validation->set_rules(
             'mobileno', $this->lang->line('mobileno'), array(
@@ -2315,6 +2321,38 @@ class Student extends Admin_Controller
             $endmonth = $startmonth - 1;
         }
         return array($startmonth, $endmonth);
+    }
+
+    public function getAdmissionNoByGuardianEmail()
+    {
+        $student_id =   $_POST['student_id'];       
+        $guardian_email =   $_POST['guardian_email'];
+        
+        $student_admission_no = $this->student_model->getAdmissionNoByGuardianEmail($student_id,$guardian_email); 
+        
+        if($student_admission_no['guardian_email']){           
+
+            echo "This Guardian Email is already exists due to ".$student_admission_no['firstname']." ".$student_admission_no['middlename']." ".$student_admission_no['lastname']." (".$student_admission_no['admission_no'].") and their siblings guardian email, if this student is also sibling then add as sibling";           
+            
+        }else{
+            echo "";
+        }
+    }
+
+    public function getAdmissionNoByGuardianPhone()
+    {
+        $student_id =   $_POST['student_id'];       
+        $guardian_phone =   $_POST['guardian_phone'];
+        
+        $student_admission_no = $this->student_model->getAdmissionNoByGuardianPhone($student_id,$guardian_phone); 
+        
+        if($student_admission_no['guardian_phone']){           
+
+            echo "This Guardian Phone is already exists due to ".$student_admission_no['firstname']." ".$student_admission_no['middlename']." ".$student_admission_no['lastname']." (".$student_admission_no['admission_no'].") and their siblings guardian phone, if this student is also sibling then add as sibling";           
+            
+        }else{
+            echo "";
+        }
     }
 
 }

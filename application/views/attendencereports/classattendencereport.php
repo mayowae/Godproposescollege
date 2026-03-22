@@ -230,14 +230,14 @@
                                                                     $print_percentage = round($percentage, 0);
                                                                 }
 
-                                                                if (($percentage < 75) && ($percentage >= 0)) {
+                                                                if (($percentage < $low_attendance_limit) && ($percentage >= 0)) {
                                                                     $label = "class='label label-danger'";
-                                                                } else if ($percentage > 75) {
+                                                                } else if ($percentage > $low_attendance_limit) {
 
                                                                     $label = "class='label label-success'";
                                                                 } else {
 
-                                                                    $label = "class='label label-default'";
+                                                                    $label = "class='label label-success'";
                                                                 }
                                                                 echo "<label $label>" . $print_percentage . "</label>";
                                                                 ?></th>

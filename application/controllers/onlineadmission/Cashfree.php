@@ -75,7 +75,7 @@ class Cashfree extends OnlineAdmission_Controller
         $new_arrya=(object)$my_array;
             $ch = curl_init();
 
-            curl_setopt($ch, CURLOPT_URL, 'https://sandbox.cashfree.com/pg/orders');
+            curl_setopt($ch, CURLOPT_URL, 'https://api.cashfree.com/pg/orders');
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_POST, 1);
             curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($new_arrya));

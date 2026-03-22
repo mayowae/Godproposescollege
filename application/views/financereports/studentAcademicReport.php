@@ -140,8 +140,11 @@ $currency_symbol = $this->customlib->getSchoolCurrencyFormat();
                                                             <td><?php echo $students->name;?></td>
                                                             <td><?php echo $students->class." (".$students->section.")";?></td>
                                                             <td><?php echo $students->admission_no;?></td>
+                                                            <?php if ($sch_setting->roll_no) { ?>
                                                             <td><?php echo $students->roll_no;?></td>
+                                                            <?php } if ($sch_setting->father_name) { ?>
                                                             <td><?php echo $students->father_name;?></td>
+                                                            <?php } ?>
 
                                                             <td class="text-right"><?php echo amountFormat($students->totalfee);?></td>
 
