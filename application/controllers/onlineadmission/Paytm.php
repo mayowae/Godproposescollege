@@ -45,8 +45,8 @@ class Paytm extends OnlineAdmission_Controller
 
         $paytmChecksum = $this->paytm_lib->getChecksumFromArray($paytmParams, $this->pay_method->api_secret_key);
         $paytmParams["CHECKSUMHASH"] = $paytmChecksum;
-		  $transactionURL              = 'https://securegw-stage.paytm.in/order/process';//for sand-box
-         //$transactionURL = 'https://securegw.paytm.in/order/process';
+		  //$transactionURL              = 'https://securegw-stage.paytm.in/order/process';//for sand-box
+         $transactionURL = 'https://securegw.paytm.in/order/process';
         $data['paytmParams'] = $paytmParams;
         $data['transactionURL'] = $transactionURL;
         $this->load->view("onlineadmission/paytm/index", $data);

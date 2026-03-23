@@ -122,12 +122,12 @@ if ($this->config->item('SSLK') == "") {
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <div class="col-lg-5 col-md-3 col-sm-2 col-xs-5">
+                    <div class="col-lg-5 col-md-3 col-sm-2 col-xs-4">
                         <span href="#"  class="sidebar-session">
                             <?php echo $this->setting_model->getCurrentSchoolName(); ?>
                         </span>
                     </div>
-                    <div class="col-lg-7 col-md-9 col-sm-10 col-xs-7">
+                    <div class="col-lg-7 col-md-9 col-sm-10 col-xs-8">
                         <div class="pull-right">
                             <?php if ($this->rbac->hasPrivilege('student', 'can_view')) {?>
 
@@ -168,9 +168,14 @@ if ($this->config->item('SSLK') == "") {
 
                                 <ul class="nav navbar-nav headertopmenu">
                                 
-                                    <?php  if (($this->module_lib->hasModule('multi_branch') && $this->module_lib->hasActive('multi_branch')) || $this->db->multi_branch) { ?>
-                                    <li class="cal15" data-placement="bottom" data-toggle="tooltip" title="<?php echo $this->lang->line('switch_branch'); ?>"><a href="#" data-toggle="modal" data-target="#multiBranchSwitchModal"><i class="fa fa-exchange" aria-hidden="true"></i></a></li>
-                                    <?php } ?>
+                                    <?php $userdata = $this->customlib->getUserData();
+                                    if($userdata["role_id"] ==7){                                    
+                                        if (($this->module_lib->hasModule('multi_branch') && $this->module_lib->hasActive('multi_branch')) || $this->db->multi_branch) { ?>
+                                    
+                                            <li class="cal15" data-placement="bottom" data-toggle="tooltip" title="<?php echo $this->lang->line('switch_branch'); ?>"><a href="#" data-toggle="modal" data-target="#multiBranchSwitchModal"><i class="fa fa-exchange" aria-hidden="true"></i></a></li>
+                                    
+                                    <?php } 
+                                    }?>
                                     
  <?php
 if ($this->module_lib->hasActive('calendar_to_do_list')) {
@@ -240,10 +245,12 @@ if ($this->module_lib->hasActive('chat')) {
 
                                 <?php }
 $file   = "";
-$result = $this->customlib->getUserData();
+$result = $this->customlib->getLoggedInUserData();
+$role = $this->customlib->getStaffRole();
+
 
 $image = $result["image"];
-$role  = $result["user_type"];
+$role  = json_decode($role)->name;
 $id    = $result["id"];
 if (!empty($image)) {
 
@@ -257,15 +264,16 @@ if (!empty($image)) {
 
 }
 ?>
+
                                     <li class="dropdown user-menu">
                                         <a class="dropdown-toggle" style="padding: 15px 12px;" data-toggle="dropdown" href="#" aria-expanded="false">
-                                            <img src="<?php echo $this->customlib->getBaseUrl(). $file; ?>" class="topuser-image" alt="User Image">
+                                            <img src="<?php echo base_url($file); ?>" class="topuser-image" alt="User Image">
                                         </a>
                                         <ul class="dropdown-menu dropdown-user menuboxshadow">
                                             <li>
                                                 <div class="sstopuser">
                                                     <div class="ssuserleft">
-                                                        <a href="<?php echo base_url() . "admin/staff/profile/" . $id ?>"><img src="<?php echo $this->customlib->getBaseUrl() . $file; ?>" alt="User Image"></a>
+                                                        <a href="<?php echo base_url() . "admin/staff/profile/" . $id ?>"><img src="<?php echo base_url($file); ?>" alt="User Image"></a>
                                                     </div>
                                                     <div class="sstopuser-test">
                                                         <h4 class="text-capitalize"><?php echo $this->customlib->getAdminSessionUserName(); ?></h4>

@@ -58,8 +58,7 @@ $count++;
                                         </div>
                                 </div>
                             </div><!--./col-md-6-->
-                               </form>
-                                 <form role="form" action="<?php echo site_url('student/searchvalidation') ?>" method="post" class="class_search_form">
+                               
                             <div class="col-md-6">
                                 <div class="row">
                                         <div class="col-sm-12">

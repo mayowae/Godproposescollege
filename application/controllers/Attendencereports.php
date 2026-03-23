@@ -45,6 +45,10 @@ class Attendencereports extends Admin_Controller
         $this->session->set_userdata('subsub_menu', 'Reports/attendance/attendance_report');
         $attendencetypes             = $this->attendencetype_model->getAttType();
         $data['attendencetypeslist'] = $attendencetypes;
+        
+        $setting_data                 = $this->setting_model->get();
+        $data['low_attendance_limit']     = $setting_data[0]['low_attendance_limit'];
+        
         $data['title']               = 'Add Fees Type';
         $data['title_list']          = 'Fees Type List';
         $class                       = $this->class_model->get();

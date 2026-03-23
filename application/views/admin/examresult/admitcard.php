@@ -165,7 +165,7 @@ if (!empty($studentList)) {
                                                                 </a>
                                                             </td>
                                                             <td><?php echo $student_value->father_name;  ?></td>
-                                                            <td><?php echo date($this->customlib->getSchoolDateFormat(), $this->customlib->dateyyyymmddTodateformat($student_value->dob)); ?></td>
+                                                            <td><?php if($student_value->dob){ echo date($this->customlib->getSchoolDateFormat(), $this->customlib->dateyyyymmddTodateformat($student_value->dob)); } ?></td>
                                                             <td><?php echo $this->lang->line(strtolower($student_value->gender)); ?></td>
                                                             <td><?php echo $student_value->category; ?></td>
                                                             <td><?php echo $student_value->mobileno; ?></td>

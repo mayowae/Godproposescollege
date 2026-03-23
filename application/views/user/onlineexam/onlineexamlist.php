@@ -20,7 +20,7 @@
                     <div class="tab-content">
                     <div class="tab-pane active" id="exam">
                     <div class="box-body ">
-                        <div class="table-responsive mailbox-messages overflow-visible">
+                        <div class="table-responsive mailbox-messages">
                             <table class="table table-striped table-bordered table-hover exam-list" data-export-title="<?php echo $this->lang->line('online_exam'); ?>">
                                 <thead>
                                     <tr>
@@ -44,7 +44,7 @@
                     </div>
                     <div class="tab-pane" id="closed-exam">
                     <div class="box-body ">
-                        <div class="table-responsive mailbox-messages overflow-visible">
+                        <div class="table-responsive mailbox-messages">
                             <table class="table table-striped table-bordered table-hover closed-exam-list" data-export-title="<?php echo $this->lang->line('online_exam'); ?>">
                                 <thead>
                                     <tr>

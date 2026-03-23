@@ -52,19 +52,19 @@ if ($front_setting->is_active_rtl) {
         <div class="toparea">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4 col-sm-4">
-                        <ul class="social">
+                   <div class="col-lg-4 col-md-4 col-sm-12">
+                         <ul class="social text-sm-center text-xs-center">
                             <?php $this->view('/themes/default/social_media');?>
 
                         </ul>
                     </div><!--./col-md-3-->
-                    <div class="col-md-5 col-sm-5">
+                   <div class="col-lg-5 col-md-5 col-sm-12">
                         <ul class="top-list">
                             <li><a href="mailto:<?php echo $school_setting->email; ?>"><i class="fa fa-envelope-o"></i><?php echo $school_setting->email; ?></a></li>
                             <li><i class="fa fa-phone"></i><?php echo $school_setting->phone; ?></li>
                         </ul>
                     </div><!--./col-md-5-->
-                    <div class="col-md-3 col-sm-3">
+                     <div class="col-lg-3 col-md-3 col-sm-12">
                         <ul class="top-right">
                             
                             
