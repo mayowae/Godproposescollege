@@ -742,7 +742,7 @@ if (!empty($student['measurement_date']) && $student['measurement_date'] != '000
     ?>
                         <!------- Behaviour Report Start-------->
                         <div class="tab-pane" id="incident">
-                            <div class=" no-border">
+                            <div class=" no-border table-responsive">
                                     <div class="download_label"><?php echo $this->lang->line('student_behaviour'); ?></div>
                                     <table class="table table-striped table-bordered table-hover example">
 

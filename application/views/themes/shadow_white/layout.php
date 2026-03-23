@@ -73,18 +73,20 @@ form.gauthenticate-form {
                 <div class="toparea">
                     <div class="container">
                         <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-12">
+                           <div class="col-lg-6 col-md-5 col-sm-12">
                                 <ul class="toplist">
                                     <li><a href="mailto:<?php echo $school_setting->email; ?>"><i class="fa fa-envelope-o i-plain"></i><?php echo $school_setting->email; ?></a></li>
                                     <li><i class="fa fa-phone i-plain"></i><?php echo $school_setting->phone; ?></li>
 
                                 </ul>
                             </div><!--./col-md-6-->
-                            <div class="col-lg-6 col-md-6 col-sm-12">
+                             <div class="col-lg-6 col-md-7 col-sm-12">
+                              <div class="top-right flex-column-sm"> 
                                 <ul class="topicon">
                                     <li><?php echo $this->lang->line('follow_us'); ?></li>
                                     <?php $this->view('/themes/darkgray/social_media');?>
                                     
+                                <ul class="topicon"> 				 
                                     <?php if ($this->module_lib->hasModule('online_course') && $this->module_lib->hasActive('online_course')) { ?>
                                     <?php if($active_menu == 'online_course' && (!empty($currencies))){ ?>
                                     <li class="menuinlinemobile">

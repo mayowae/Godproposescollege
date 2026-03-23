@@ -66,7 +66,7 @@ class Payfast extends OnlineAdmission_Controller
             $gateway_ins_id=$this->gateway_ins_model->add_gateway_ins($ins_data);
             $this->session->set_userdata("payfast_payment_id",$payfast_data['m_payment_id']);
             // If in testing mode make use of either sandbox.payfast.co.za or www.payfast.co.za
-            $testingMode = true;
+            $testingMode = false;
             $pfHost = $testingMode ? 'sandbox.payfast.co.za' : 'www.payfast.co.za';
             $data['pfHost']=$pfHost;
             $data['htmlForm']= $payfast_data;

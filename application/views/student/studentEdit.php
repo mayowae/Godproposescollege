@@ -736,8 +736,11 @@ if ($student['guardian_is'] == "other") {
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1"><?php echo $this->lang->line('guardian_phone'); ?></label><small class="req"> *</small>
-                                                        <input id="guardian_phone" name="guardian_phone" placeholder="" type="text" class="form-control"  value="<?php echo set_value('guardian_phone', $student['guardian_phone']); ?>" />
+                                                        <input id="guardian_phone" name="guardian_phone" placeholder="" type="text" class="form-control guardian_phone"  value="<?php echo set_value('guardian_phone', $student['guardian_phone']); ?>" />
                                                         <span class="text-danger"><?php echo form_error('guardian_phone'); ?></span>
+                                                        
+                                                        <span  class="text-danger" id="guardian_phone_replace"></span>
+                                                        
                                                     </div>
                                                 </div>
                                             <?php }if ($sch_setting->guardian_occupation) {?>
@@ -755,8 +758,11 @@ if ($student['guardian_is'] == "other") {
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1"><?php echo $this->lang->line('guardian_email'); ?></label>
-                                                    <input id="guardian_email" name="guardian_email" placeholder="" type="text" class="form-control"  value="<?php echo set_value('guardian_email', $student['guardian_email']); ?>" />
+                                                    <input id="guardian_email" name="guardian_email" placeholder="" type="text" class="form-control guardian_email"  value="<?php echo set_value('guardian_email', $student['guardian_email']); ?>" />
                                                     <span class="text-danger"><?php echo form_error('guardian_email'); ?></span>
+                                                    
+                                                    <span  class="text-danger" id="guardian_email_replace"></span>
+                                                    
                                                 </div>
                                             </div>
 <?php }if ($sch_setting->guardian_pic) {?>
@@ -1375,6 +1381,68 @@ $(document).on('change','#vehroute_id',function(){
 //==============
 
     });
+    });
+</script>
+<script>
+    $(".guardian_email").keyup(function() {        
+        var student_id = "<?php echo $id; ?>";       
+        var guardian_email = $('#guardian_email').val();       
+        $.ajax({
+            url:'<?php echo base_url(); ?>student/getAdmissionNoByGuardianEmail',
+            type:'post',
+            data:{guardian_email:guardian_email,student_id:student_id},
+            success:function(response){                   
+                
+                $('#guardian_email_replace').html(response);
+            }
+                    
+        });
+    });
+    
+    $(".guardian_phone").keyup(function() {        
+        var student_id = "<?php echo $id; ?>";       
+        var guardian_phone = $('#guardian_phone').val();       
+        $.ajax({
+            url:'<?php echo base_url(); ?>student/getAdmissionNoByGuardianPhone',
+            type:'post',
+            data:{guardian_phone:guardian_phone,student_id:student_id},
+            success:function(response){                    
+                
+                $('#guardian_phone_replace').html(response);
+            }
+                    
+        });
+    });
+    
+    
+    $(document).ready( function () {
+        var student_id = "<?php echo $id; ?>";       
+        var guardian_phone = "<?php echo $student['guardian_phone']; ?>";       
+        $.ajax({
+            url:'<?php echo base_url(); ?>student/getAdmissionNoByGuardianPhone',
+            type:'post',
+            data:{guardian_phone:guardian_phone,student_id:student_id},
+            success:function(response){                    
+                
+                $('#guardian_phone_replace').html(response);
+            }
+                    
+        });
+    });
+    
+    $(document).ready( function () {
+        var student_id = "<?php echo $id; ?>";       
+        var guardian_email = "<?php echo $student['guardian_email']; ?>";    
+        $.ajax({
+            url:'<?php echo base_url(); ?>student/getAdmissionNoByGuardianEmail',
+            type:'post',
+            data:{guardian_email:guardian_email,student_id:student_id},
+            success:function(response){                   
+                
+                $('#guardian_email_replace').html(response);
+            }
+                    
+        });
     });
 </script>
 

@@ -1,4 +1,4 @@
-<form method="post" name="redirect" action="https://sandbox.payhere.lk/pay/checkout">   
+<form method="post" name="redirect" action="https://www.payhere.lk/pay/checkout">   
     <?php 
     
     foreach ($htmlform as $key => $value) {

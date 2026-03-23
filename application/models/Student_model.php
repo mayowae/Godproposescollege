@@ -2220,4 +2220,24 @@ class Student_model extends MY_Model
         $query = $this->db->get();
         return $query->row_array();
     }
+    
+    public function getAdmissionNoByGuardianEmail($student_id,$guardian_email)
+    {
+        $this->db->select('students.firstname,students.middlename,students.lastname,students.admission_no,students.guardian_email');  
+        $this->db->from('students');
+        $this->db->where('students.id !=', $student_id);       
+        $this->db->where('students.guardian_email', $guardian_email);       
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+    
+    public function getAdmissionNoByGuardianPhone($student_id,$guardian_phone)
+    {
+        $this->db->select('students.firstname,students.middlename,students.lastname,students.admission_no,students.guardian_phone');  
+        $this->db->from('students');
+        $this->db->where('students.id !=', $student_id);       
+        $this->db->where('students.guardian_phone', $guardian_phone);       
+        $query = $this->db->get();
+        return $query->row_array();
+    }
 }

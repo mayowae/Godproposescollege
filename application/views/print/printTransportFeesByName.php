@@ -365,7 +365,7 @@ $amount_fine = number_format($record->amount_fine, 2, '.', '');
                         
                         <div class="row header ">
                             <div class="col-sm-12">
-                                <?php $this->setting_model->get_receiptfooter();?>
+                                <?php echo $this->setting_model->get_receiptfooter();?>
                             </div>
                         </div>
                     </div>
@@ -542,7 +542,7 @@ $amount_fine = number_format($record->amount_fine, 2, '.', '');
                             
                             <div class="row header ">
                                 <div class="col-sm-12">
-                                    <?php $this->setting_model->get_receiptfooter();?>
+                                    <?php echo $this->setting_model->get_receiptfooter();?>
 
                                 </div>
                             </div>
@@ -716,7 +716,7 @@ $amount_fine = number_format($record->amount_fine, 2, '.', '');
                             
                             <div class="row header ">
                                 <div class="col-sm-12">
-                                    <?php $this->setting_model->get_receiptfooter();?>
+                                    <?php echo $this->setting_model->get_receiptfooter();?>
 
                                 </div>
                             </div>

@@ -122,10 +122,12 @@ class Site extends Public_Controller
                         $logusername = $result->name;
                     }
 
+
                     $session_data = array(
                         'id'                     => $result->id,
                         'username'               => $logusername,
                         'email'                  => $result->email,
+                        'image'                  =>$result->image,
                         'roles'                  => $result->roles,
                         'date_format'            => $setting_result[0]['date_format'],                        
                         'currency'               => ($result->currency == 0) ? $setting_result[0]['currency']: $result->currency,
@@ -503,11 +505,11 @@ class Site extends Public_Controller
                         $image = '';
                         if ($result[0]->role == "parent") {
                             $username = $result[0]->guardian_name;
-                            if ($result[0]->guardian_relation == "Father") {
+                            if ($result[0]->guardian_is == "father") {
                                 $image = $result[0]->father_pic;
-                            } else if ($result[0]->guardian_relation == "Mother") {
+                            } else if ($result[0]->guardian_is == "mother") {
                                 $image = $result[0]->mother_pic;
-                            } else if ($result[0]->guardian_relation == "Other") {
+                            } else if ($result[0]->guardian_is == "other") {
                                 $image = $result[0]->guardian_pic;
                             }
                         } elseif ($result[0]->role == "student") {
